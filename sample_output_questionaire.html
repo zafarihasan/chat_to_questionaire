@@ -1,0 +1,688 @@
+<html>
+<head>
+<script type="text/javascript">
+
+var row_no="0";
+var answer='x';
+  function OnRowClick (row) {
+			q_no="q"+row.rowIndex;
+			if(answer!='x') // if no option is made
+			  {
+				answer_int=parseInt(answer);
+				var colors = ['#ffeeee', '#ddffdd', '#88ff77','#00ee00'];
+				document.getElementById(q_no).style.backgroundColor = colors[answer_int];
+				answer='x';
+			}
+        }
+
+
+
+function f(t)
+{
+answer=t.value;
+}
+//////////////////////////////////////
+function collect(){
+var all_ans="";
+var tot_questions = document.getElementById("questionnaire").rows.length;
+
+
+var un_answered_no=0
+var The_answered=-1;
+
+for (var qn = 1; qn < tot_questions; qn++)
+{
+var question = document.getElementsByName("a"+qn);
+The_answered=-1;
+for(var i = 0; i < question.length; i++) 
+{
+   if(question[i].checked)
+   {
+       importance = question[i].value;
+       all_ans=all_ans+qn+':'+importance+', ';
+	   The_answered=i;  
+}
+}
+if (The_answered==-1){
+ un_answered_no++;
+  //alert(qn);
+ }
+
+
+
+}
+if (un_answered_no>0)
+ alert('please anwer all questions ('+un_answered_no+' are null now)'); 
+ else
+ {
+result.value="document number:"+doc_no.value+", Doctor's name: "+Dr_name.value+"|"+all_ans;
+copy_msg.style.visibility = 'visible';
+}
+}
+
+</script>
+</head>
+
+
+
+<body bgcolor="#eeffff">
+
+Please enter your name: <input type="text" size="10" id="Dr_name" >
+<Br>
+
+<Br>
+Doc No: <input type="text" value=4030 size="10" id="doc_no" disabled>
+<br>
+<br>
+
+<table border="1" cellspacing="0" cellpadding="5" id="questionnaire" bgcolor="#ffffff">
+<thead>
+<th>Message#</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>Message</th>
+</thead>
+<tbody>
+
+
+    <tr  onclick='OnRowClick (this)' id='row1'>
+    <td>1</td>
+
+    <td border="0"><input type='radio' name='a1' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a1' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a1' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a1' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q1'>Pt: (@pt)--Hello Doctor!  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row2'>
+    <td>2</td>
+
+    <td border="0"><input type='radio' name='a2' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a2' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a2' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a2' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q2'>Pt: My name is Chaitra.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row3'>
+    <td>3</td>
+
+    <td border="0"><input type='radio' name='a3' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a3' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a3' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a3' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q3'>Pt: Gender is Female.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row4'>
+    <td>4</td>
+
+    <td border="0"><input type='radio' name='a4' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a4' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a4' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a4' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q4'>Pt: Age is 25.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row5'>
+    <td>5</td>
+
+    <td border="0"><input type='radio' name='a5' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a5' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a5' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a5' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q5'>Pt: My main issue is: Pain in the chest and arms My current medications are: No.
+ </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row6'>
+    <td>6</td>
+
+    <td border="0"><input type='radio' name='a6' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a6' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a6' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a6' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q6'>Dr: Hi, My name is Dr. Tracy Wilson, M.D..
+ </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row7'>
+    <td>7</td>
+
+    <td border="0"><input type='radio' name='a7' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a7' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a7' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a7' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q7'>Pt: Hi doctor.
+ </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row8'>
+    <td>8</td>
+
+    <td border="0"><input type='radio' name='a8' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a8' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a8' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a8' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q8'>Dr: Please explain your query in detail.
+ </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row9'>
+    <td>9</td>
+
+    <td border="0"><input type='radio' name='a9' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a9' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a9' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a9' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q9'>Pt: I am having some pain in my breast bone and my left arm for a while now.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row10'>
+    <td>10</td>
+
+    <td border="0"><input type='radio' name='a10' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a10' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a10' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a10' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q10'>Pt: I think it is coz of stress or exertion.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row11'>
+    <td>11</td>
+
+    <td border="0"><input type='radio' name='a11' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a11' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a11' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a11' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q11'>Pt: Please let me know what i can do for it?
+ </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row12'>
+    <td>12</td>
+
+    <td border="0"><input type='radio' name='a12' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a12' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a12' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a12' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q12'>Dr: Can you rate your pain on an intensity scale of 1-10 with 10 being the worst?
+ </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row13'>
+    <td>13</td>
+
+    <td border="0"><input type='radio' name='a13' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a13' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a13' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a13' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q13'>Pt: My pluse rate is approx 70 bpm.
+ </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row14'>
+    <td>14</td>
+
+    <td border="0"><input type='radio' name='a14' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a14' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a14' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a14' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q14'>Dr: Do you have any  sweating, nausea, vomiting, dizziness, palpitations, heartburn?  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row15'>
+    <td>15</td>
+
+    <td border="0"><input type='radio' name='a15' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a15' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a15' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a15' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q15'>Dr: Does it hurt when you press your chest?  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row16'>
+    <td>16</td>
+
+    <td border="0"><input type='radio' name='a16' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a16' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a16' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a16' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q16'>Dr: Do you have any diagnosed medical condition such as Ischemic Heart Disease, Diabetes, Hypertension?  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row17'>
+    <td>17</td>
+
+    <td border="0"><input type='radio' name='a17' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a17' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a17' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a17' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q17'>Dr: History of smoking.
+ </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row18'>
+    <td>18</td>
+
+    <td border="0"><input type='radio' name='a18' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a18' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a18' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a18' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q18'>Pt: 1-2.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row19'>
+    <td>19</td>
+
+    <td border="0"><input type='radio' name='a19' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a19' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a19' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a19' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q19'>Pt: No none of the above.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row20'>
+    <td>20</td>
+
+    <td border="0"><input type='radio' name='a20' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a20' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a20' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a20' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q20'>Pt: Just some headache coz of the cold weather .  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row21'>
+    <td>21</td>
+
+    <td border="0"><input type='radio' name='a21' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a21' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a21' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a21' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q21'>Pt: I have a small pimple on the chest which hurts when I press bht nothing else.
+ </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row22'>
+    <td>22</td>
+
+    <td border="0"><input type='radio' name='a22' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a22' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a22' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a22' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q22'>Dr: does it hurt when you press chest other than pimple.
+ </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row23'>
+    <td>23</td>
+
+    <td border="0"><input type='radio' name='a23' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a23' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a23' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a23' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q23'>Pt: And the top bart of my breastbone is a bit sore.
+ </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row24'>
+    <td>24</td>
+
+    <td border="0"><input type='radio' name='a24' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a24' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a24' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a24' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q24'>Dr: ?
+ </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row25'>
+    <td>25</td>
+
+    <td border="0"><input type='radio' name='a25' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a25' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a25' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a25' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q25'>Pt: Top part of the breastbone to the left is a bit sore .  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row26'>
+    <td>26</td>
+
+    <td border="0"><input type='radio' name='a26' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a26' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a26' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a26' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q26'>Pt: It's not deep rooted chest pain .
+ </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row27'>
+    <td>27</td>
+
+    <td border="0"><input type='radio' name='a27' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a27' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a27' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a27' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q27'>Dr: for now You can take over the counter pain killer ibuprofen/paracetamol and relieve pain and take it 8 hourly, apply a local pain killer gel and then do hot fomentation at the site of pain.
+ </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row28'>
+    <td>28</td>
+
+    <td border="0"><input type='radio' name='a28' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a28' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a28' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a28' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q28'>Pt: What is it ?  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row29'>
+    <td>29</td>
+
+    <td border="0"><input type='radio' name='a29' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a29' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a29' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a29' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q29'>Pt: Stress related stuff or menstruation related coz i habe my periods due in 3-4 days.
+ </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row30'>
+    <td>30</td>
+
+    <td border="0"><input type='radio' name='a30' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a30' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a30' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a30' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q30'>Dr: most likely stress related.
+ </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row31'>
+    <td>31</td>
+
+    <td border="0"><input type='radio' name='a31' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a31' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a31' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a31' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q31'>Pt: Or is it a heart issue.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row32'>
+    <td>32</td>
+
+    <td border="0"><input type='radio' name='a32' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a32' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a32' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a32' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q32'>Pt: I have heard of youngster getting heart attacks and other stuff.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row33'>
+    <td>33</td>
+
+    <td border="0"><input type='radio' name='a33' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a33' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a33' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a33' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q33'>Pt: Or is it a heart issue.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row34'>
+    <td>34</td>
+
+    <td border="0"><input type='radio' name='a34' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a34' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a34' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a34' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q34'>Pt: I have heard of youngster getting heart attacks and other stuff.that is worrying mw.
+ </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row35'>
+    <td>35</td>
+
+    <td border="0"><input type='radio' name='a35' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a35' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a35' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a35' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q35'>Dr: It does not look like heart attack please relax.
+ </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row36'>
+    <td>36</td>
+
+    <td border="0"><input type='radio' name='a36' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a36' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a36' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a36' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q36'>Pt: My pulse is around 70 then why is it stress?
+ </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row37'>
+    <td>37</td>
+
+    <td border="0"><input type='radio' name='a37' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a37' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a37' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a37' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q37'>Dr: this is normal pulse.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row38'>
+    <td>38</td>
+
+    <td border="0"><input type='radio' name='a38' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a38' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a38' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a38' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q38'>Dr: its not necessary that you will have increase heart rate.
+ </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row39'>
+    <td>39</td>
+
+    <td border="0"><input type='radio' name='a39' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a39' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a39' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a39' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q39'>Pt: Oh. </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row40'>
+    <td>40</td>
+
+    <td border="0"><input type='radio' name='a40' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a40' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a40' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a40' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q40'>Pt: .okay.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row41'>
+    <td>41</td>
+
+    <td border="0"><input type='radio' name='a41' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a41' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a41' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a41' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q41'>Pt: Can there be My measures i can tAke to avoid stress.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row42'>
+    <td>42</td>
+
+    <td border="0"><input type='radio' name='a42' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a42' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a42' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a42' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q42'>Pt: I get worked up during my deadlines at work.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row43'>
+    <td>43</td>
+
+    <td border="0"><input type='radio' name='a43' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a43' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a43' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a43' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q43'>Pt: And by seeing these weird medical.articles in the papers about such stuff I mentioned before.
+ </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row44'>
+    <td>44</td>
+
+    <td border="0"><input type='radio' name='a44' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a44' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a44' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a44' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q44'>Dr: 1. Increase your daily water intake.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row45'>
+    <td>45</td>
+
+    <td border="0"><input type='radio' name='a45' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a45' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a45' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a45' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q45'>Dr: 2. Start drawing, or writing, or playing music, these are the things by which you can express yourself without needing anyone to talk to.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row46'>
+    <td>46</td>
+
+    <td border="0"><input type='radio' name='a46' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a46' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a46' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a46' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q46'>Dr: 3. I would advise you to start doing bodyweight training such as calisthenics; it doesn't need any gym equipment and can be done at home on the floor.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row47'>
+    <td>47</td>
+
+    <td border="0"><input type='radio' name='a47' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a47' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a47' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a47' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q47'>Dr: Another alternative is yoga, it immensely benefits mental health, and you can mix both of these and do them on a regular basis.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row48'>
+    <td>48</td>
+
+    <td border="0"><input type='radio' name='a48' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a48' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a48' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a48' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q48'>Dr: Make sure to stay persistent.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row49'>
+    <td>49</td>
+
+    <td border="0"><input type='radio' name='a49' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a49' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a49' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a49' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q49'>Dr: 4. Eat 5 cashews a day and eat a little portion of dark chocolate every Monday (once per week).  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row50'>
+    <td>50</td>
+
+    <td border="0"><input type='radio' name='a50' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a50' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a50' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a50' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q50'>Dr: Our brain produces a happy hormone known as serotonin.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row51'>
+    <td>51</td>
+
+    <td border="0"><input type='radio' name='a51' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a51' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a51' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a51' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q51'>Dr: This makes you feel good and relaxed.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row52'>
+    <td>52</td>
+
+    <td border="0"><input type='radio' name='a52' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a52' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a52' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a52' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q52'>Dr: 5. Try this: inhale 4 count, pause 7 count and exhale 8 count.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row53'>
+    <td>53</td>
+
+    <td border="0"><input type='radio' name='a53' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a53' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a53' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a53' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q53'>Dr: Repeat 4-6 rounds.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row54'>
+    <td>54</td>
+
+    <td border="0"><input type='radio' name='a54' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a54' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a54' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a54' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q54'>Dr: It is known as Dr. Andrew Weil’s breath work, there is a demonstration video available online, and you can look it up.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row55'>
+    <td>55</td>
+
+    <td border="0"><input type='radio' name='a55' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a55' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a55' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a55' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q55'>Dr: This is very effective if done regularly.   </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row56'>
+    <td>56</td>
+
+    <td border="0"><input type='radio' name='a56' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a56' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a56' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a56' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q56'>Dr: Points 2,3 and 4 help in boosting the happy hormone production and are beneficial in the long run as well.
+ </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row57'>
+    <td>57</td>
+
+    <td border="0"><input type='radio' name='a57' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a57' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a57' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a57' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q57'>Pt: Thanks doctor.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row58'>
+    <td>58</td>
+
+    <td border="0"><input type='radio' name='a58' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a58' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a58' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a58' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q58'>Pt: Now i feel less stressed about my health and more relaxed.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row59'>
+    <td>59</td>
+
+    <td border="0"><input type='radio' name='a59' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a59' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a59' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a59' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q59'>Pt: Have a nice evening.
+ </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row60'>
+    <td>60</td>
+
+    <td border="0"><input type='radio' name='a60' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a60' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a60' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a60' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q60'>Dr: You're welcome.  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row61'>
+    <td>61</td>
+
+    <td border="0"><input type='radio' name='a61' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a61' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a61' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a61' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q61'>Dr: Take care, Happy to help!  </td> </tr>
+    <tr  onclick='OnRowClick (this)' id='row62'>
+    <td>62</td>
+
+    <td border="0"><input type='radio' name='a62' value='0'  onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a62' value='1' onclick='f(this)'></td>
+    <td border="0"><input type='radio' name='a62' value='2' onclick='f(this)'></td>
+   <td border="0"> <input type='radio' name='a62' value='3' onclick='f(this)'></td>
+    </td>
+    <td id='q62'>Dr: If you liked our service please leave us a Google review: https://goo.gl/zSyZEa :). </td> </tr></table><br>
+
+	<input type="button" value="Collect the answers" onclick="collect()" style="font-size: 14pt; background-color: #4CAF50;">
+	<br>
+	<br>
+	<div id='copy_msg' style="visibility:hidden">
+	<p style="font-size: 14pt; color: #FF1122;"> Please copy the content of the following textbox and send it to the following email: </P>
+	<p style="font-size: 14pt; color: #1111ff;"> zafari@cs.queensu.ca </p> 
+	<p> Thanks </p>
+	</div>
+
+    <br>
+	<br>
+	<textarea id="result" name="w3review" rows="4" cols="150" style="font-size: 14pt"></textarea>
+	
+		
+	</body></html>
+
+
